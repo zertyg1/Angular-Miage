@@ -1,0 +1,9 @@
+#buttom{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+button{
+    margin-left: 10px;
+}
