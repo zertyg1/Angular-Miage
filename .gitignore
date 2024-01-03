@@ -3,7 +3,6 @@
 /tmp
 /out-tsc
 /bazel-out
-/src/app/shared/data.ts
 # Node
 /node_modules
 npm-debug.log
