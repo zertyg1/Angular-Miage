@@ -3,7 +3,7 @@ import { Observable, catchError, forkJoin, of, tap } from "rxjs";
 import { Assignment } from "../assignments/assignment.model";
 import { LoggingService } from "./logging.service";
 import { HttpClient } from "@angular/common/http";
-import{data} from './data';
+//import{data} from './data';
 
 @Injectable({
   providedIn: "root",
@@ -71,7 +71,7 @@ export class AssignmentsService {
     };
   }
 
-  peuplerBD() {
+  /*peuplerBD() {
     data.forEach((a) => {
       let newAssignment = new Assignment();
       newAssignment.nom = a.nom;
@@ -84,7 +84,7 @@ export class AssignmentsService {
           console.log(reponse);
         });
     });
-  }
+  }*/
 
   getAssignmentsPagine(page:number, limit:number):Observable<any>{
     return this.http.get<Assignment>(this.url + "?page=" + page + "&limit=" + limit).pipe(

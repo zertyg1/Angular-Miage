@@ -11,15 +11,8 @@ import { AssignmentsService } from './shared/assignments.service';
 export class AppComponent {
   title = 'Application de gestion des devoirs à rendre (Assignments)';
   constructor (private authService:AuthService, private router:Router,private assignmentsService:AssignmentsService ){}
-  /*login(){
-    if(!this.authService.loggedIn){
-      this.authService.logIn();
-    }else{
-      this.authService.logOut();
-      this.router.navigate(['/home']);
-    }
-  }*/
-  bd(){
+  
+  /*bd(){
     this.assignmentsService.peuplerBD();
-  }
+  }*/
 }
