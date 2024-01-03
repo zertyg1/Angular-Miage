@@ -1,8 +1,9 @@
 import { Injectable, OnInit } from "@angular/core";
-import { Observable, catchError, of, tap } from "rxjs";
+import { Observable, catchError, forkJoin, of, tap } from "rxjs";
 import { Assignment } from "../assignments/assignment.model";
 import { LoggingService } from "./logging.service";
 import { HttpClient } from "@angular/common/http";
+import{data} from './data';
 
 @Injectable({
   providedIn: "root",
@@ -68,5 +69,28 @@ export class AssignmentsService {
       console.log(operation + " à échoué " + error.message);
       return of(result as T);
     };
+  }
+
+  peuplerBD() {
+    data.forEach((a) => {
+      let newAssignment = new Assignment();
+      newAssignment.nom = a.nom;
+      newAssignment.dateDeRendu = new Date(a.dateDeRendu);
+      newAssignment.rendu = a.rendu;
+
+
+      this.addAssignment(newAssignment)
+        .subscribe(reponse => {
+          console.log(reponse);
+        });
+    });
+  }
+
+  getAssignmentsPagine(page:number, limit:number):Observable<any>{
+    return this.http.get<Assignment>(this.url + "?page=" + page + "&limit=" + limit).pipe(
+      tap((a) => {
+        console.log(`tap : nom=${a.nom}`);
+      }, catchError(this.handleError<any>("### catchError : getAssignmentsPagine")))
+    );
   }
 }

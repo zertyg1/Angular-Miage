@@ -4,6 +4,15 @@
         <button class="ajouterBtn" mat-flat-button color="accent">Ajouter
             Devoir</button>
     </a>
+    <div class="pagination">
+        <mat-paginator
+            [pageIndex]="page"
+            [pageSize]="limit"
+            [length]="totalDocs"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            (page)="changePage($event)"
+        ></mat-paginator>
+    </div>
     <mat-list *ngFor="let assignment of assignments">
         <nav><a routerLink="/assignment/{{assignment.id}}">
                 <h3 mat-subheader>Date de Rendu: {{assignment.dateDeRendu| date : "dd/MM/yyyy" }} </h3>

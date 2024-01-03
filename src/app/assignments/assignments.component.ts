@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Assignment } from './assignment.model';
 import { AssignmentsService } from '../shared/assignments.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-assignments',
@@ -16,6 +17,17 @@ export class AssignmentsComponent implements OnInit {
   assignementSelectionne!: Assignment;
   formVisible = false;
   assignments:Assignment[] =[];
+  page!: number;
+  limit!: number;
+  totalDocs!: number;
+  totalPages!: number;
+  hasPrevPage!: boolean;
+  prevPage!: number;
+  hasNextPage!: boolean;
+  nextPage!: number;
+ 
+
+  dataSource = new MatTableDataSource<Assignment>();
 
   constructor(private assignmentsService:AssignmentsService) {}
   onSubmit() {
@@ -28,11 +40,23 @@ export class AssignmentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.ajoutActive = true;
-    }, 2000);
-
-    this.assignmentsService.getAssignments().subscribe(assignments=>this.assignments=assignments);
+    //this.assignmentsService.getAssignments().subscribe(assignments=>this.assignments=assignments);
+    this.getAssignments();
+  }
+  getAssignments(): void {
+    this.assignmentsService.getAssignmentsPagine(this.page, this.limit)
+     .subscribe(data => {
+       this.assignments = data.docs;
+       this.page = data.page;
+       this.limit = data.limit;
+       this.totalDocs = data.totalDocs;
+       this.totalPages = data.totalPages;
+       this.hasPrevPage = data.hasPrevPage;
+       this.prevPage = data.prevPage;
+       this.hasNextPage = data.hasNextPage;
+       this.nextPage = data.nextPage;
+       console.log("données reçues", this.assignments);
+     });
   }
 
   assignmentClique(assignment: Assignment) {
@@ -41,6 +65,19 @@ export class AssignmentsComponent implements OnInit {
   }
 
 
-  
+  changePage(event: any) {
+    this.assignmentsService.getAssignmentsPagine(event.pageIndex,event.pageSize)
+      .subscribe(data => {
+        this.assignments = data.docs;
+        this.page = data.page;
+        this.limit = data.limit;
+        this.totalDocs = data.totalDocs;
+        this.totalPages = data.totalPages;
+        this.hasPrevPage = data.hasPrevPage;
+        this.prevPage = data.prevPage;
+        this.hasNextPage = data.hasNextPage;
+        this.nextPage = data.nextPage;
+      });
+  }
 }
   
