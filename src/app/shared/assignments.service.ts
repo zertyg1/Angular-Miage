@@ -10,7 +10,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AssignmentsService {
   assignments: Assignment[] = [];
-  url = "http://localhost:8010/api/assignments";
+  url = "https://api-miage-back.onrender.com/api/assignments";
 
   constructor(
     private loggingService: LoggingService,
