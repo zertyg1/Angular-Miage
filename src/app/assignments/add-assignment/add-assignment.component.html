@@ -4,6 +4,18 @@
         <input matInput placeholder="Nom du devoir" [(ngModel)]="nomDevoir" name="nom">
     </mat-form-field>
     <mat-form-field>
+        <input matInput placeholder="Nom du auteur" [(ngModel)]="auteur" name="auteur">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Nom du matiere" [(ngModel)]="matiere" name="matiere">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="La note" [(ngModel)]="note" name="note">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Remarques" [(ngModel)]="remarques" name="remarques">
+    </mat-form-field>
+    <mat-form-field>
         <input matInput [matDatepicker]="picker" [(ngModel)]="dateRendu" placeholder="date de rendu" name="dateDeRendu">
 
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

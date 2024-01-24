@@ -28,6 +28,8 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
 
 
 const routes: Routes = [
@@ -73,7 +75,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatSlideToggleModule,
     HttpClientModule,MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,MatSortModule,MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

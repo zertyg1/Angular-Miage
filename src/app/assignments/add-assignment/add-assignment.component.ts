@@ -13,6 +13,10 @@ export class AddAssignmentComponent implements OnInit {
   ajoutActive = true;
   nomDevoir = '';
   dateRendu!: Date;
+  auteur!:string;
+  matiere!:string;
+  note!:number;
+  remarques!:string;
 
   constructor(
     private assignmentsService: AssignmentsService,
@@ -27,6 +31,10 @@ export class AddAssignmentComponent implements OnInit {
     newAssignment.nom = this.nomDevoir;
     newAssignment.dateDeRendu = this.dateRendu ? this.dateRendu : new Date();
     newAssignment.rendu = false;
+    newAssignment.auteur = this.auteur;
+    newAssignment.matiere = this.matiere;
+    newAssignment.note = this.note;
+    newAssignment.remarques = this.remarques;
     this.assignmentsService
       .addAssignment(newAssignment)
       .subscribe((reponse) => {

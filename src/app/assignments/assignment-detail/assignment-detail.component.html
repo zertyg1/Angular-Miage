@@ -1,6 +1,10 @@
 <div class="container">
     <mat-card>
         <mat-card-title>{{assignementTransmis.nom}} </mat-card-title>
+        <mat-card-title><span>Le nom de l'auteur: </span>{{assignementTransmis.auteur}} </mat-card-title>
+        <mat-card-title><span>Le nom de matière: </span>{{assignementTransmis.matiere}} </mat-card-title>
+        <mat-card-title><span>La note de devoir: </span>{{assignementTransmis.note}} </mat-card-title>
+        <mat-card-title><span>La remarques sur le devoir: </span>{{assignementTransmis.remarques}} </mat-card-title>
         <mat-card-subtitle>{{assignementTransmis.dateDeRendu | date: 'dd/MM/yyyy'}} </mat-card-subtitle>
         <mat-card-actions id="bottom">
             <mat-checkbox *ngIf="!assignementTransmis.rendu" (click)="onAssignmentRendu()">Devoir rendu</mat-checkbox>
