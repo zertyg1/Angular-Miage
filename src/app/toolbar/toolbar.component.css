@@ -8,15 +8,35 @@ mat-sidenav-container{
 
 mat-sidenav{
   width: 280px;
-  background-color: #eee;
+  background-color: #524449;
 }
 
 mat-list-item:hover {
-background-color: #f5f5f5; 
+background-color: #5db0e7; 
 }
-
+mat-list-item a{
+  color: white;
+}
 .login,
 .title{
   margin-left: 10px;
   margin-bottom: 10px;
+}
+
+img{
+  width: 40%;
+  height: 80%;
+  margin-left: 25%;
+  margin-right: 10%;
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+
+mat-toolbar{
+  height: 69px
+}
+
+
+.mat-toolbar.mat-primary{
+  background-color: #524449;
 }

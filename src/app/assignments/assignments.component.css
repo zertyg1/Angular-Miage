@@ -1,25 +1,59 @@
-.rendu{
-    border: 1px solid green;
-    background-color: yellow;
+.container {
+  margin: 20px;
 }
 
-.nonRendu{
-    border: 1px solid green;
-    background-color: purple;
+.app-title {
+  text-align: center;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
-a{
-    align-self: flex-end;
-}
-h2{
-    margin: 20px;
+.ajouterBtn {
+  background-color: #5db0e7; 
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
 
-main{
-    margin: 2%;
+.pagination {
+  margin: 20px 0;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+th {
+  background-color: lightgray;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #5db0e7;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, ;
+    
+  }

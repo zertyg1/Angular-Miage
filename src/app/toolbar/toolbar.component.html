@@ -8,6 +8,7 @@
     <a mat-icon-button routerLink="/"> 
       <mat-icon>home</mat-icon> 
     </a>
+    <img src="../../assets/logo_miage.png" >
     <span class="spacer"></span>
     <ng-container *ngIf="!log(); else loggedInTemplate">
       <button mat-button routerLink="/login">
@@ -25,9 +26,6 @@
       <mat-list>
         <mat-list-item><a routerLink="" style="text-decoration: none;">Liste des devoirs</a></mat-list-item>
         <mat-list-item><a routerLink="add" style="text-decoration: none;">Ajout d'un devoir</a></mat-list-item>
-        <mat-list-item><a routerLink="" style="text-decoration: none;">Modification d'un devoir</a></mat-list-item>
-        <mat-list-item><a routerLink="" style="text-decoration: none;">Suppression d'un devoir</a></mat-list-item>
-        <mat-list-item><a routerLink="" style="text-decoration: none;">Génération de données de test</a></mat-list-item>
       </mat-list>
     </mat-sidenav>
     <mat-sidenav-content>  

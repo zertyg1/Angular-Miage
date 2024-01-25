@@ -1,19 +1,15 @@
-<h2>App Gestion Devoir Angular</h2>
+<h2 class="app-title">App Gestion Devoir Angular</h2>
 <main class="container">
-    <a routerLink="/add">
-        <button class="ajouterBtn" mat-flat-button color="accent">Ajouter
-            Devoir</button>
-    </a>
-    <div class="pagination">
-        <mat-paginator
-            [pageIndex]="page"
-            [pageSize]="limit"
-            [length]="totalDocs"
-            [pageSizeOptions]="[5, 10, 25, 100]"
-            (page)="changePage($event)"
-        ></mat-paginator>
+    <div class="header">
+        <a routerLink="/add">
+            <button class="ajouterBtn" mat-flat-button color="accent">Ajouter Devoir</button>
+        </a>
     </div>
-    <mat-list *ngFor="let assignment of assignments">
+    <div class="pagination">
+        <mat-paginator [pageIndex]="page" [pageSize]="limit" [length]="totalDocs" [pageSizeOptions]="[5, 10, 25, 100]"
+            (page)="changePage($event)"></mat-paginator>
+    </div>
+    <!--<mat-list *ngFor="let assignment of assignments">
         <nav><a routerLink="/assignment/{{assignment.id}}">
                 <h3 mat-subheader>Date de Rendu: {{assignment.dateDeRendu| date : "dd/MM/yyyy" }} </h3>
                 <mat-list-item (click)="assignmentClique(assignment)">
@@ -26,5 +22,46 @@
                     <mat-divider />
                 </mat-list-item>
             </a></nav>
-    </mat-list>
+    </mat-list>-->
+    <table>
+        <thead>
+            <tr>
+                <th>Devoir</th>
+                <th>Auteur</th>
+                <th>Matière</th>
+                <th>Note</th>
+                <th>Remarques</th>
+                <th>Date de rendu</th>
+                <th>Rendu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let assignment of assignments">
+                <td routerLink="/assignment/{{assignment.id}}" (click)="assignmentClique(assignment)">{{assignment.nom}}
+                </td>
+                <td routerLink="/assignment/{{assignment.id}}" (click)="assignmentClique(assignment)">
+                    {{assignment.auteur}}</td>
+                <td routerLink="/assignment/{{assignment.id}}" (click)="assignmentClique(assignment)">
+                    {{assignment.matiere}}</td>
+                <td routerLink="/assignment/{{assignment.id}}" (click)="assignmentClique(assignment)">
+                    {{assignment.note}}</td>
+                <td routerLink="/assignment/{{assignment.id}}" (click)="assignmentClique(assignment)">
+                    {{assignment.remarques}}</td>
+                <td routerLink="/assignment/{{assignment.id}}" (click)="assignmentClique(assignment)">
+                    {{assignment.dateDeRendu | date: 'dd/MM/yyyy'}}</td>
+                <td routerLink="/assignment/{{assignment.id}}" (click)="assignmentClique(assignment)">
+                    <ng-container *ngIf="assignment.rendu; else nonRendu">
+                        Travail rendu
+                    </ng-container>
+                    <ng-template #nonRendu>
+                        Travail non rendu
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer class="footer">
+        <p>&copy; 2024 ADANSAR & BALRHI. <br>Travail dédié à Monsieur DONATI et à Monsieur BUFFA.</p>
+    </footer>
 </main>
