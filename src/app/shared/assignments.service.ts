@@ -86,11 +86,13 @@ export class AssignmentsService {
     });
   }*/
 
-  getAssignmentsPagine(page:number, limit:number):Observable<any>{
-    return this.http.get<Assignment>(this.url + "?page=" + page + "&limit=" + limit).pipe(
-      tap((a) => {
-        console.log(`tap : nom=${a.nom}`);
-      }, catchError(this.handleError<any>("### catchError : getAssignmentsPagine")))
-    );
+  getAssignmentsPagine(page: number, limit: number): Observable<any> {
+    return this.http
+      .get<Assignment>(this.url + "?page=" + page + "&limit=" + limit)
+      .pipe(
+        tap((a) => {
+          console.log(`tap : nom=${a.nom}`);
+        }, catchError(this.handleError<any>("### catchError : getAssignmentsPagine")))
+      );
   }
 }

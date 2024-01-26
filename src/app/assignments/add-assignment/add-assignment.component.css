@@ -1,30 +1,18 @@
 .form {
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
 }
 
-button.mat-stroked-button[color="primary"] {
-  color: #5db0e7;
-}
-body::before {
-  content: "MIAGE";
-  position: fixed;
-  top: 89%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-  font-size: 32px;
-  font-weight: bold;
-  pointer-events: none;
-  z-index: 9999;
-  animation: colorChange 3s infinite alternate;
+mat-form-field {
+  width: 50%;
 }
 
-@keyframes colorChange {
-  20% {
-    color: rgba(255, 255, 255, 0.5);
-  }
-  100% {
-    color: #673ab7;
-  }
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 200px;
+  max-height: 200px;
 }

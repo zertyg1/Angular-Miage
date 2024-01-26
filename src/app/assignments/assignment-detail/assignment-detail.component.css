@@ -1,30 +1,59 @@
-#buttom {
+.container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-button {
+span {
+  margin-left: 5px;
+}
+mat-card-subtitle {
   margin-left: 10px;
 }
-body::before {
-  content: "MIAGE";
-  position: fixed;
-  top: 85%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-  font-size: 32px;
-  font-weight: bold;
-  pointer-events: none;
-  z-index: 9999;
-  animation: colorChange 3s infinite alternate;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-@keyframes colorChange {
-  20% {
-    color: rgba(255, 255, 255, 0.5);
-  }
-  100% {
-    color: #673ab7;
-  }
+.mat-card {
+  width: 600px;
+  height: 700px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mat-card:hover {
+  transform: scale(1.05);
+}
+
+.mat-card-lg {
+  width: 700px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 8px;
+  width: 900px;
+  height: 500px;
+  color: #5db0e7;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #524449;
+  margin: 10px;
+}
+
+.card hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.editbtn {
+  margin-left: 10px;
 }
